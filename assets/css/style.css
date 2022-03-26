@@ -1,0 +1,2209 @@
+/*--------------------------------------------------------------
+# common css
+--------------------------------------------------------------*/
+
+
+body {
+    background-color: #eee;
+    font-family: 'SolaimanLipi',  sans-serif !important;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    user-select: none;
+  }
+ 
+  
+  a:link,
+  a:visited {
+    text-decoration: none;
+    cursor: pointer;
+    color: unset;
+  }
+  
+
+  
+
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  #header {
+    transition: all 0.5s;
+    z-index: 997;
+    border-bottom: 1px solid #ffffff;
+    background: #ffffff;
+  }
+  #header.header-scrolled, #header.header-inner-pages {
+    background: #ffffff;
+  }
+  #header .logo {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  #header .logo a {
+    color: #0101d0;
+    font-weight: bold;
+  }
+  #header .logo img {
+    max-height: 40px;
+  }
+  @media (max-width: 992px) {
+    #header {
+      border: 0;
+      padding: 15px 0 0 0;
+    }
+  }
+  
+  #page{
+    margin-top: 155px;
+  }
+
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  /**
+  * Desktop Navigation 
+  */
+  .navbar {
+    padding: 0;
+  }
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  .navbar li {
+    position: relative;
+  }
+  .navbar > ul > li {
+    position: relative;
+    white-space: nowrap;
+    margin: 0 12px;
+  }
+  .navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 3px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #00adef;
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .navbar a i, .navbar a:focus i {
+    font-size: 14px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  .navbar > ul > li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #0101d0;
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  .navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+  }
+  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+    color: #0101d0;
+  }
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-top: 2px solid #00adef;
+  }
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: none;
+    font-weight: 500;
+    color: #000000;
+  }
+  .navbar .dropdown ul a i {
+    font-size: 14px;
+  }
+  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+    color: #0101d0;
+  }
+  .navbar .dropdown:hover > ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+  .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+  }
+  .navbar .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+  }
+
+  
+  /**
+  * Mobile Navigation 
+  */
+  .mobile-nav-toggle {
+    color: #0101d0;
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+    margin-left: 100px;
+  }
+  
+  @media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+  
+    .navbar ul {
+      display: none;
+    }
+  }
+  .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(15, 15, 15, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+  }
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+  .navbar-mobile a, .navbar-mobile a:focus {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #00adef;;
+  }
+  .navbar-mobile a:hover:before, .navbar-mobile li:hover > a:before, .navbar-mobile .active:before {
+    visibility: hidden;
+  }
+  .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+    color:  #0101d0;
+  }
+  .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
+    margin: 15px;
+  }
+  .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  }
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+  }
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+  }
+  .navbar-mobile .dropdown ul a i {
+    font-size: 14px;
+  }
+  .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+    color: #0101d0;;
+  }
+  .navbar-mobile .dropdown > .dropdown-active {
+    display: block;
+  }
+
+#small_header{
+    margin-top: 10px;
+    background: #000 !important;
+    text-align: right;
+    padding: 0px 100px;
+}
+#small_header button{
+  padding: 0px 20px;
+  margin: 5px 20px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+#small_header  .sign_up{
+  background: #0101d0;
+  color: #fff;
+  font-weight: bold;
+}
+#small_header  .sign_up:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+#small_header  .log_in{
+  background: #00adef;
+  color: #000000;
+}
+
+#small_header  .log_in:hover{
+  background: #0101d0;
+  color: #fff;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  #small_header{
+    margin-top: 10px;
+    background: #000 !important;
+    text-align: right;
+    padding: 2px 20px;
+}
+#small_header button{
+  padding: 0px 20px;
+  margin: 1px 10px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+#small_header  .sign_up{
+  background: #0101d0;
+  color: #fff;
+  font-weight: bold;
+}
+#small_header  .sign_up:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+#small_header  .log_in{
+  background: #00adef;
+  color: #000000;
+}
+
+#small_header  .log_in:hover{
+  background: #0101d0;
+  color: #fff;
+}
+
+.get-started-btn {
+  background: #0101d0;
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 7px 30px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px !important;
+  font-weight: 600;
+  display: inline-block;
+}
+
+#header .logo {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+#page{
+  margin-top: 120px;
+}
+}
+  
+  
+
+ 
+/*--------------------------------------------------------------
+# Get Started Button
+--------------------------------------------------------------*/
+.get-started-btn {
+  background: #0101d0;
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 10px 55px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 40px;
+  font-weight: 600;
+  display: inline-block;
+}
+.get-started-btn:hover{
+  background:#00adef;
+  color: #000000 !important;
+}
+/*--------------------------------------------------------------
+# Home page
+--------------------------------------------------------------*/
+
+.outline_box{
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #0101d0;
+  background: #fff;
+  height: 340px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.outline_box video{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.outline_box .box_button{
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.outline_box .box_button a{
+  background: #0101d0;
+  font-weight: bolder;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 40px;
+  border-radius: 5px;
+}
+
+.outline_box .box_button a:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .outline_box{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #0101d0;
+    background: #fff;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  .outline_box .box_button a{
+    background: #0101d0;
+    font-weight: bolder;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 30px;
+    border-radius: 5px;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info-box {
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
+  padding: 20px 0 30px 0;
+}
+.contact .info-box i {
+  font-size: 32px;
+  color: #0000d0;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #00adef;
+}
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.contact .php-email-form {
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
+  padding: 30px;
+}
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+.contact .php-email-form .form-group {
+  margin-bottom: 20px;
+}
+.contact .php-email-form input, .contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: #106eea;
+}
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+.contact .php-email-form button[type=submit] {
+  background: #0000d0;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+.contact .php-email-form button[type=submit]:hover {
+  background: #3b8af2;
+}
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #06162c;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 15px;
+  background: #05101e;
+  border-top: 4px solid #00adef;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  background: #0a1e38;
+}
+
+#footer .footer-top .social-links a:hover {
+  color: #fff;
+  background: #00adef;
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+ 
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #00adef;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color:  #00adef;
+}
+
+
+#footer .copyright {
+  border-top: 1px solid #0f2f57;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# sign up page
+--------------------------------------------------------------*/
+.ad_box{
+  background: #ffffff;
+  padding: 20px;
+  border: 1px solid #0101d0;
+  border-radius: 10px;
+
+}
+
+.ad_box ul {
+  list-style: none;
+}
+.ad_box ul li::before {
+  content: "✅";
+  display: inline-block;
+  font-size: 16px;
+  line-height: 40px;
+}
+
+.sign_up_box{
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #0101d0;
+}
+
+.sign_up_box .box_heading p{
+  font-size: 18px;
+  margin-top: -38px;
+  margin-left: 10px;
+  background: white;
+  border: 1px solid #0101d0;
+  padding: 3px 30px;
+  border-radius: 10px;
+  width: 30%;
+}
+.sign_up_box .text-field {
+  position: relative;
+  margin: 20px;
+}
+
+.sign_up_box .text-field input {
+  display: inline-block;
+  border: 1px solid #00adef;
+  color: #000;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.sign_up_box .text-field input:focus {
+     outline: none !important;
+      border-color: #0101d0;
+      box-shadow: 0 0 8px #719ECE;
+      background-color:#fff;
+}
+
+.sign_up_box .text-field label {
+  color: #999;
+  font-size: 16px;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+
+
+
+.sign_up_box .text-field input:focus ~ label, input:valid ~ label {
+  top: -10px;
+  left: 20px;
+  font-size: small;
+  font-weight: bolder;
+  color: #0101d0;
+  background-color:#fff;
+  padding:1px 7px;
+  border-radius: 5px;
+}
+.sign_up_box button{
+  font-size: 16px;
+  border: 1px solid #0101d0;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: #0101d0;
+  padding: 4px 40px;
+  margin-left: 37%;
+}
+.sign_up_box button:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+.radio_input{
+  padding: 3px 15px;
+  color: #000000;
+}
+.radio_input input:focus ~ label, input:valid ~ label{
+  color: #000000 !important;
+}
+
+.captcha_img{
+  text-align: center;
+}
+.captcha_img img{
+  height: 50px;
+  width: auto;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .sign_up_box button{
+    font-size: 14px;
+    border: 1px solid #0101d0;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    background: #0101d0;
+    padding: 4px 40px;
+    margin-left: 24%;
+  }
+  .sign_up_box{
+    margin-bottom: 20px;
+  }
+
+  .sign_up_box .box_heading p{
+    font-size: 16px;
+    margin-top: -38px;
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #0101d0;
+    padding: 3px 30px;
+    border-radius: 10px;
+    width: 60%;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# log in page
+--------------------------------------------------------------*/
+.login_box{
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #0101d0;
+  text-align: center;
+}
+.login_box .box_heading p{
+  font-size: 18px;
+  margin-top: -38px;
+  margin-left: 10px;
+  background: white;
+  border: 1px solid #0101d0;
+  padding: 3px 30px;
+  border-radius: 10px;
+  width: 20%;
+}
+.login_box .text-field {
+  position: relative;
+  margin: 20px;
+}
+
+.login_box input {
+  display: inline-block;
+  border: 1px solid #00adef;
+  color: #000;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.login_box input:focus {
+     outline: none !important;
+      border-color: #0101d0;
+      box-shadow: 0 0 8px #719ECE;
+      background-color:#fff;
+}
+
+.login_box label {
+  color: #999;
+  font-size: 16px;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+.login_box input:focus ~ label, input:valid ~ label {
+  top: -10px;
+  left: 20px;
+  font-size: small;
+  font-weight: bolder;
+  color: #0101d0;
+  background-color:#fff;
+  padding:1px 7px;
+  border-radius: 5px;
+}
+.login_box button{
+  font-size: 16px;
+  border: 1px solid #0101d0;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: #0101d0;
+  padding: 4px 40px;
+}
+.login_box button:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+.login_box .login_message{
+  padding: 10px 20px;
+  text-decoration: center;
+}
+.login_box .login_message p,a{
+  margin: 0;
+  line-height: 30px;
+  display: inline;
+}
+.login_box .login_message a{
+  color: #0101d0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .login_box button{
+    font-size: 14px;
+    border: 1px solid #0101d0;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    background: #0101d0;
+    padding: 4px 40px;
+  }
+  .login_box .login_message p,a{
+    margin: 0;
+    line-height: 30px;
+    display: inline-block;
+  }
+
+  .login_box .box_heading p{
+    font-size: 16px;
+    margin-top: -38px;
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #0101d0;
+    padding: 3px 30px;
+    border-radius: 10px;
+    width: 50%;
+  }
+ 
+}
+
+/*--------------------------------------------------------------
+# subscriber Dash board
+--------------------------------------------------------------*/
+
+#subscriber_header{
+  background: #000000;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px 0px;
+}
+#subscriber_header p{
+  margin: 0px;
+}
+#subscriber_header button{
+  border: none;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 3px;
+  background: #0101d0;
+  color: #ffffff;
+  margin-left: 25px;
+  padding: 0px 20px;
+}
+#subscriber_header button:hover{
+  background: #00adef;
+  color: #000000;
+}
+.class_personal_info{
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+.class_details{
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+.class_details i{
+  padding: 0px 10px;
+}
+.class_details span{
+  padding-left: 5%;
+}
+
+.table-bordered td, .table-bordered th {
+  border: 1px solid #000;
+  text-align: center;
+}
+.table-bordered tr:nth-child(even) {
+  background: rgba(243, 243, 243, 0.699);
+}
+.table thead th{
+  border: 1px solid #000;
+  background: #B6D0E2;
+  vertical-align: inherit;
+}
+@media screen and (min-width: 999px){
+  .table-responsive{
+    display: inline-table;
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  #subscriber_header{
+    font-size: 12px;
+  }
+  .class_details{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    line-height: 0px;
+  }
+  .table-responsive{
+    display: table;
+    font-size: 14px;
+    overflow-x: scroll;
+  }
+
+  .class_personal_info{
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+/*--------------------------------------------------------------
+# nav tabs
+--------------------------------------------------------------*/
+.nav-tabs .nav-link {
+  color: black !important;
+  background-color: #e8f0fc;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 7px 7px 0px 0px;
+  border: 1px solid #0000d0;
+  border-bottom: none;
+  margin-right: 10px;
+}
+.nav-tabs .nav-link:hover{
+  background: #00adef;
+  border-radius: 7px 7px 0px 0px;
+  border: 1px solid #0000d0;
+  border-bottom: none;
+}
+.nav-tabs .nav-link.active{
+    color: #ffffff !important;
+    background-color: #0000d0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tab-content{
+    padding: 40px;
+    border-radius: 0px 10px 10px 10px;
+    border: 1px solid #0000d0;
+}
+
+.nav-tabs{
+  border-bottom: none;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .tab-content{
+    padding: 20px 10px;
+    border-radius: 0px 5px 5px 5px;
+    border: 1px solid #0000d0;
+}
+.nav-tabs .nav-link{
+  display: inline !important;
+  padding: 3px;
+  font-size: 14px;
+}
+}
+
+/*--------------------------------------------------------------
+# class & class note page
+--------------------------------------------------------------*/
+
+.lectureselect_box{
+  background: #ffffff;
+  padding: 0px 100px;
+  border-radius: 10px;
+  border: 1px solid #0000d0;
+}
+.lectureselect_box .box_heading{
+  background: #ffffff;
+  margin-top: -18px;
+  border-radius: 50px;
+  border: 1px solid #0000d0;
+  width: 30%;
+  font-weight: bold;
+}
+.lectureselect_box .box_heading p{
+  margin: 0;
+  padding: 4px 30px;
+  
+}
+
+.lectureselect_box .box_body{
+  padding: 40px 250px;
+  text-align: center;
+}
+.lectureselect_box .text-field {
+  position: relative;
+  margin: 20px;
+}
+
+.lectureselect_box input {
+  display: inline-block;
+  border: 1px solid #00adef;
+  color: #000;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.lectureselect_box input:focus {
+     outline: none !important;
+      border-color: #0101d0;
+      box-shadow: 0 0 8px #719ECE;
+      background-color:#fff;
+}
+
+.lectureselect_box label {
+  color: #999;
+  font-size: 16px;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+.lectureselect_box input:focus ~ label, input:valid ~ label {
+  top: -10px;
+  left: 20px;
+  font-size: small;
+  font-weight: bolder;
+  color: #0101d0;
+  background-color:#fff;
+  padding:1px 7px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+
+  .lectureselect_box{
+    background: #ffffff;
+    padding: 0px 20px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+  }
+
+
+  .lectureselect_box .box_heading{
+    background: #ffffff;
+    margin-top: -18px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+    width: 95%;
+    font-weight: bold;
+  }
+  .lectureselect_box .box_body{
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+
+}
+
+/*--------------------------------------------------------------
+# modal
+--------------------------------------------------------------*/
+
+.modal_button{
+  background: #0000d0;
+  border-radius: 5px;
+  padding: 10px 50px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.modal_button:hover{
+  background: #00adef;
+  color: #000000;
+}
+.modal-content .modal-header{
+  text-align: center;
+  background: #0000d0;
+  padding: 8px 20px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 37%;
+}
+.modal-content .modal-header .close{
+  color: #ffffff;
+}
+.modal-content .modal-body p{
+ margin: 0;
+ line-height: 30px;
+}
+
+.modal-content .modal-body i{
+  font-size: 65px;
+  color: rgb(5, 204, 5);
+  font-weight: bold;
+  padding: 10px;
+}
+.modal-footer{
+  justify-content: center;
+  padding: 3px;
+}
+
+.modal-footer button{
+  background: #0000d0;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 3px 30px;
+}
+.modal-footer button:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .modal_button{
+    background: #0000d0;
+    border-radius: 5px ;
+    padding: 5px 20px !important;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .modal-content .modal-header{
+    text-align: center;
+    background: #0000d0;
+    padding: 8px 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px !important;
+    padding-left: 32%;
+  }
+}
+/*--------------------------------------------------------------
+# class inner page
+--------------------------------------------------------------*/
+
+.class_inner{
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  padding: 20px 50px;
+  border-radius: 10px;
+}
+
+.class_inner .box_heading{
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  padding: 10px 30px;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: -45px;
+  font-weight: bold;
+}
+.class_inner .box_heading p{
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0px;
+}
+.box_body{
+  padding: 30px 50px;
+  font-size: 16px;
+}
+.class_note_download{
+  text-align: right;
+}
+.class_note_download button{
+  background: #0000d0;
+  padding: 5px 40px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.class_note_download button:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+
+.class_note_portion{
+  padding: 50px 0px;
+}
+
+.class_note_portion .carousel-inner .carousel-item{
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  background: #eee;
+  text-align: center;
+}
+
+.class_note_portion .carousel-inner .carousel-item video{
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.carousel-control-prev, .carousel-control-next{
+  margin-top: 395px;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  background: #0000d0;
+  color: #ffffff !important;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.carousel-control-prev-icon:hover{
+  background: #00adef;
+  color: #000000 !important;
+}
+
+.carousel-control-next-icon:hover{
+  background: #00adef;
+  color: #000000 !important;
+}
+.carousel-control-next, .carousel-control-prev{
+  opacity: 1;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+   
+    .class_inner{
+      background: #ffffff;
+      border: 1px solid #0000d0;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    
+    .class_inner .box_heading{
+      background: #ffffff;
+      border: 1px solid #0000d0;
+      padding: 7px 20px;
+      border-radius: 5px;
+      width: 70%;
+      margin-top: -30px;
+      font-weight: bold;
+      
+    }
+    .class_inner .box_heading p{
+      font-size: 15px;
+      font-weight: bold;
+      margin: 0px;
+    }
+    .box_body{
+      padding: 10px 0px;
+      font-size: 14px;
+    }
+
+    .class_note_download button{
+      background: #0000d0;
+      padding: 0px 20px;
+      border: none;
+      font-size: 12px;
+      border-radius: 4px;
+      color: #ffffff !important;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .class_note_portion{
+      padding: 10px 0px;
+      margin-bottom: 40px;
+    }
+    .class_note_portion .carousel-inner .carousel-item{
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      background: #eee;
+      text-align: center;
+    }
+    
+    .class_note_portion .carousel-inner .carousel-item video{
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+    }
+    
+    .carousel-control-prev, .carousel-control-next{
+      margin-top: 289px;
+      width: 35%;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon{
+      background: #0000d0;
+      color: #ffffff !important;
+      padding: 0px 5px;
+      border-radius: 5px;
+      width: 300px;
+      font-size: 12px;
+      height: 30px;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+}
+
+
+/*--------------------------------------------------------------
+# class & class note page
+--------------------------------------------------------------*/
+
+.examselect_box .modal-content .modal-header{
+  padding-left: 45%;
+}
+.examselect_box{
+  background: #ffffff;
+  padding: 0px 100px;
+  border-radius: 10px;
+  border: 1px solid #0000d0;
+}
+.examselect_box .box_heading{
+  background: #ffffff;
+  margin-top: -18px;
+  border-radius: 10px;
+  border: 1px solid #0000d0;
+  width: 15%;
+  font-weight: bold;
+}
+.examselect_box .box_heading p{
+  margin: 0;
+  padding: 4px 30px;
+  
+}
+
+.examselect_box .box_body{
+  padding: 40px 250px;
+  text-align: center;
+}
+.examselect_box .text-field {
+  position: relative;
+  margin: 20px;
+}
+
+.examselect_box input {
+  display: inline-block;
+  border: 1px solid #00adef;
+  color: #000;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.examselect_box input:focus {
+     outline: none !important;
+      border-color: #0101d0;
+      box-shadow: 0 0 8px #719ECE;
+      background-color:#fff;
+}
+
+.examselect_box label {
+  color: #999;
+  font-size: 16px;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+.examselect_box input:focus ~ label, input:valid ~ label {
+  top: -10px;
+  left: 20px;
+  font-size: small;
+  font-weight: bolder;
+  color: #0101d0;
+  background-color:#fff;
+  padding:1px 7px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .examselect_box{
+    background: #ffffff;
+    padding: 0px 20px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+  }
+  .examselect_box .box_heading{
+    background: #ffffff;
+    margin-top: -18px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+    width: 45%;
+    font-weight: bold;
+  }
+  .examselect_box .box_body{
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .examselect_box .modal-content .modal-header{
+    padding-left: 40%;
+  }
+
+}
+/*--------------------------------------------------------------
+# exam inner page
+--------------------------------------------------------------*/
+
+
+.exam_inner{
+  background: #ffffff;
+  padding: 0px 30px;
+  border-radius: 10px;
+  border: 1px solid #0000d0;
+}
+.exam_inner .box_heading{
+  background: #ffffff;
+  margin-top: -18px;
+  border-radius: 10px;
+  border: 1px solid #0000d0;
+  width: 30%;
+  font-weight: bold;
+  font-size: 17px;
+}
+.exam_inner .box_heading p{
+  margin: 0;
+  padding: 4px 30px;
+}
+
+.exam_inner .box_body{
+  padding: 30px 0px;
+}
+.exam_inner .radio_input{
+  padding-left: 30px;
+}
+
+.exam_inner .pop_up{
+  text-align: center;
+}
+.exam_inner .modal-body a{
+  color: #0000d0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.exam_inner .modal-content .modal-header{
+  padding-left: 25%;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+
+  .exam_inner{
+    background: #ffffff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+  }
+  .exam_inner .box_heading{
+    background: #ffffff;
+    margin-top: -18px;
+    border-radius: 5px;
+    border: 1px solid #0000d0;
+    width: 88%;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .exam_inner .box_heading p{
+    margin: 0;
+    padding: 4px 30px;
+  }
+  
+  .exam_inner .box_body{
+    padding: 30px 0px;
+  }
+  .exam_inner .radio_input{
+    padding-left: 30px;
+  }
+
+  .exam_inner .modal-content .modal-header{
+    padding-left: 2%;
+  }
+}
+
+/*--------------------------------------------------------------
+# result page
+--------------------------------------------------------------*/
+
+.result_page{
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  padding: 0px 60px;
+}
+
+.result_page .page_heading{
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  padding: 5px 30px;
+  width: 25%;
+  margin-top: -20px;
+}
+.result_page .page_heading p{
+  margin: 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.result_page .page_body{
+  padding: 50px 0px;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .result_page{
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    padding: 0px 10px;
+  }
+  .result_page .page_heading{
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    padding: 5px 20px;
+    width: 60%;
+    margin-top: -20px;
+    
+  }
+
+  .result_page .page_heading p{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .result_page .page_body{
+    padding: 20px 0px;
+  }
+}
+
+/*--------------------------------------------------------------
+# account page
+--------------------------------------------------------------*/
+
+.short_details_box{
+  padding: 0px 50px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+}
+
+.short_details_box .box_heading{
+  padding: 5px 30px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  width: 25%;
+  margin-top: -20px;
+}
+
+.short_details_box .box_heading p{
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
+}
+
+.short_details_box .box_body{
+  padding: 30px 150px;
+  font-weight: bold;
+}
+.short_details_box .box_body a{
+  font-weight: bold;
+  color: #ffffff;
+  background: #0000d0;
+  padding: 5px 20px;
+  margin-left: 30px;
+  border-radius: 3px;
+}
+
+.short_details_box .box_body a:hover{
+  color: #000000;
+  background: #00adef;
+}
+.updated_personal_details{
+  padding: 0px 50px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.updated_personal_details .box_heading{
+  padding: 5px 30px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  width: 40%;
+  margin-top: -20px;
+}
+
+.updated_personal_details .box_heading p{
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
+}
+
+.updated_personal_details .box_body{
+  padding: 30px 150px;
+  font-weight: bold;
+}
+.updated_personal_details .box_body label{
+  font-size: 16px !important;
+  font-weight: bold;
+  color: #000000 !important;
+  text-align: end;
+  padding-right: 30px;
+  width: 20%;
+}
+.updated_personal_details .box_body input,select{
+  width: 60%;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0000d0;
+  border-radius: 7px;
+}
+.updated_personal_details .box_body .update_button{
+  text-align: center; 
+  padding-top: 20px;
+  
+}
+.updated_personal_details .box_body .update_button input{
+  width: 30%;
+  font-weight: bold;
+  height: 50px;
+  background: #0000d0;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.updated_personal_details .box_body .update_button input:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+.updated_personal_details .box_body input,select:focus{
+  outline: none;
+}
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .short_details_box{
+    padding: 0px 30px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+  }
+  .short_details_box .box_heading{
+    padding: 3px 30px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    width: 70%;
+    margin-top: -15px;
+  }
+  
+  .short_details_box .box_heading p{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+  }
+  .short_details_box .box_body{
+    padding: 20px 10px;
+    font-weight: bold;
+  }
+  .short_details_box .box_body a{
+    font-weight: bold;
+    color: #ffffff;
+    background: #0000d0;
+    padding: 0px 10px;
+    margin-left: 20px;
+    border-radius: 3px;
+  }
+  
+  .short_details_box .box_body a:hover{
+    color: #000000;
+    background: #00adef;
+  }
+
+  .updated_personal_details{
+    padding: 0px 10px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  
+  .updated_personal_details .box_heading{
+    padding: 3px 15px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    width: 95%;
+    margin-top: -15px;
+  }
+  
+  .updated_personal_details .box_heading p{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .updated_personal_details .box_body{
+    padding: 20px 0px;
+  }
+  .updated_personal_details .box_body label{
+    
+    font-size: 14px !important;
+    font-weight: bold;
+    color: #000000 !important;
+    text-align: left;
+  
+  }
+  .updated_personal_details .box_body label,input,select{
+    display: inline;
+  }
+  .updated_personal_details .box_body input,select{
+    width: 60%;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #0000d0;
+    border-radius: 7px;
+  
+  }
+  .updated_personal_details .box_body .update_button{
+    text-align: center; 
+    padding-top: 10px;
+    
+  }
+  .updated_personal_details .box_body .update_button input{
+    width: 60%;
+    font-weight: bold;
+    height: 40px;
+    background: #0000d0;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .updated_personal_details .box_body .update_button input:hover{
+    background: #00adef;
+    color: #000000;
+  }
+  
+  .updated_personal_details .box_body input,select:focus{
+    outline: none;
+  }
+}
+
+
+
+
+/** Relevant styles below this line **/
+.selected {
+  /* The select box */
+  display: inline-block;
+  min-width: 200px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+.selected:after {
+  /* The "dropdown" arrow */
+  content: "";
+  box-sizing: content-box;
+  display: inline-block;
+  float: right;
+  width: 0;
+  height: 0;
+  margin: 5px 0 5px 5px;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #000000 transparent transparent transparent;
+}
+
+.fancy-select {
+  /* Dropdown options container */
+  list-style: none;
+  min-width: 200px;
+  max-height: 115px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border: 1px solid black;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+}
+.fancy-select .fancy-option {
+  /* Individual options */
+  padding: 5px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+.fancy-select .fancy-option:hover {
+  background: #0000d0 !important;
+  color: white;
+}
+.fancy-select .fancy-option.disabled {
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+  cursor: default;
+}
+.fancy-select .fancy-option.disabled:hover {
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+}
+
+
+/*--------------------------------------------------------------
+# academy_registration page
+--------------------------------------------------------------*/
+
+.mosque_registration{
+  padding: 0px 50px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+}
+
+.mosque_registration .box_heading{
+  padding: 5px 30px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  width: 40%;
+  margin-top: -20px;
+}
+
+.mosque_registration .box_heading p{
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
+}
+
+.mosque_registration .box_body{
+  padding: 30px 100px;
+  font-weight: bold;
+}
+.mosque_registration .box_body label{
+  font-size: 16px !important;
+  font-weight: bold;
+  color: #000000 !important;
+  text-align: end;
+  padding-right: 20px;
+  width: 40%;
+}
+.mosque_registration .box_body input,select{
+  width: 55%;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0000d0;
+  border-radius: 7px;
+}
+.mosque_registration .box_body .update_button{
+  text-align: center; 
+  padding-top: 20px;
+  
+}
+.mosque_registration .box_body .update_button input{
+  width: 30%;
+  font-weight: bold;
+  height: 50px;
+  background: #0000d0;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.mosque_registration .box_body .update_button input:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+.mosque_registration .box_body input,select:focus{
+  outline: none;
+}
+
+.madrasha_registration{
+  padding: 0px 50px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.madrasha_registration .box_heading{
+  padding: 5px 30px;
+  background: #ffffff;
+  border: 1px solid #0000d0;
+  border-radius: 10px;
+  width: 40%;
+  margin-top: -20px;
+}
+
+.madrasha_registration .box_heading p{
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
+}
+
+.madrasha_registration .box_body{
+  padding: 30px 100px;
+  font-weight: bold;
+}
+.madrasha_registration .box_body label{
+  font-size: 16px !important;
+  font-weight: bold;
+  color: #000000 !important;
+  text-align: end;
+  padding-right: 20px;
+  width: 40%;
+}
+.madrasha_registration .box_body input,select{
+  width: 55%;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0000d0;
+  border-radius: 7px;
+}
+.madrasha_registration .box_body .update_button{
+  text-align: center; 
+  padding-top: 20px;
+  
+}
+.madrasha_registration .box_body .update_button input{
+  width: 30%;
+  font-weight: bold;
+  height: 50px;
+  background: #0000d0;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.madrasha_registration .box_body .update_button input:hover{
+  background: #00adef;
+  color: #000000;
+}
+
+.madrasha_registration .box_body input,select:focus{
+  outline: none;
+}
+
+@media screen and (max-width: 1023px) and (min-width: 320px){
+  .mosque_registration{
+    padding: 0px 10px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+  }
+  
+  .mosque_registration .box_heading{
+    padding: 3px 15px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    width: 95%;
+    margin-top: -15px;
+  }
+  
+  .mosque_registration .box_heading p{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .mosque_registration .box_body{
+    padding: 20px 0px;
+  }
+  .mosque_registration .box_body label{
+    
+    font-size: 14px !important;
+    font-weight: bold;
+    color: #000000 !important;
+    text-align: left;
+  
+  }
+  .mosque_registration .box_body label,input,select{
+    display: inline;
+  }
+  .mosque_registration .box_body input,select{
+    width: 60%;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #0000d0;
+    border-radius: 7px;
+  
+  }
+  .mosque_registration .box_body .update_button{
+    text-align: center; 
+    padding-top: 10px;
+    
+  }
+  .mosque_registration .box_body .update_button input{
+    width: 60%;
+    font-weight: bold;
+    height: 40px;
+    background: #0000d0;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .mosque_registration .box_body .update_button input:hover{
+    background: #00adef;
+    color: #000000;
+  }
+  
+  .mosque_registration .box_body input,select:focus{
+    outline: none;
+  }
+  .madrasha_registration{
+    padding: 0px 10px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  
+  .madrasha_registration .box_heading{
+    padding: 3px 15px;
+    background: #ffffff;
+    border: 1px solid #0000d0;
+    border-radius: 5px;
+    width: 95%;
+    margin-top: -15px;
+  }
+  
+  .madrasha_registration .box_heading p{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .madrasha_registration .box_body{
+    padding: 20px 0px;
+  }
+  .madrasha_registration .box_body label{
+    
+    font-size: 14px !important;
+    font-weight: bold;
+    color: #000000 !important;
+    text-align: left;
+  
+  }
+  .madrasha_registration .box_body label,input,select{
+    display: inline;
+  }
+  .madrasha_registration .box_body input,select{
+    width: 60%;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #0000d0;
+    border-radius: 7px;
+  
+  }
+  .madrasha_registration .box_body .update_button{
+    text-align: center; 
+    padding-top: 10px;
+    
+  }
+  .madrasha_registration .box_body .update_button input{
+    width: 60%;
+    font-weight: bold;
+    height: 40px;
+    background: #0000d0;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .madrasha_registration .box_body .update_button input:hover{
+    background: #00adef;
+    color: #000000;
+  }
+  
+  .madrasha_registration .box_body input,select:focus{
+    outline: none;
+  }
+}
